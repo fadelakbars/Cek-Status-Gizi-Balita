@@ -400,6 +400,7 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
         }
         // data for 'female' can follow the same pattern
     };
+    
 
     function calculateZScore(value, category, sex, age) {
         if (!whoData[sex]) {
@@ -428,14 +429,17 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
     // Menghitung Z-Score untuk setiap kategori
     const zScoreWeightForAge = calculateZScore(beratBadan, "weightForAge", jenisKelamin, umur);
     const zScoreHeightForAge = calculateZScore(panjangBadan, "heightForAge", jenisKelamin, umur);
+    const zScoreWeightForHeight = calculateZScore(beratBadan, "weightForHeight", jenisKelamin, umur);
 
-    // Menampilkan hasil di modal
+    // Menentukan status berdasarkan Z-Score
     const weightStatus = getStatus(zScoreWeightForAge);
     const heightStatus = getStatus(zScoreHeightForAge);
+    const weightForHeightStatus = getStatus(zScoreWeightForHeight);
 
-    // Menampilkan hasil dalam modal
+    // Menampilkan hasil di modal
     document.getElementById('weightForAge').textContent = `${zScoreWeightForAge.toFixed(2)} (${weightStatus})`;
     document.getElementById('heightForAge').textContent = `${zScoreHeightForAge.toFixed(2)} (${heightStatus})`;
+    document.getElementById('weightForHeight').textContent = `${zScoreWeightForHeight.toFixed(2)} (${weightForHeightStatus})`;
 
     const resultsModal = new bootstrap.Modal(document.getElementById('resultsModal'));
     resultsModal.show();
