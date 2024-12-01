@@ -400,7 +400,6 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
         }
         // data for 'female' can follow the same pattern
     };
-    
 
     function calculateZScore(value, category, sex, age) {
         if (!whoData[sex]) {
@@ -441,6 +440,11 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
     document.getElementById('heightForAge').textContent = `${zScoreHeightForAge.toFixed(2)} (${heightStatus})`;
     document.getElementById('weightForHeight').textContent = `${zScoreWeightForHeight.toFixed(2)} (${weightForHeightStatus})`;
 
+    // Menambahkan kelas berdasarkan status
+    updateBadgeStatus('weightForAge', weightStatus);
+    updateBadgeStatus('heightForAge', heightStatus);
+    updateBadgeStatus('weightForHeight', weightForHeightStatus);
+
     const resultsModal = new bootstrap.Modal(document.getElementById('resultsModal'));
     resultsModal.show();
 });
@@ -450,4 +454,21 @@ function getStatus(zScore) {
     if (zScore < -2) return 'Underweight';
     if (zScore >= -2 && zScore <= 2) return 'Normal';
     return 'Overweight';
+}
+
+// Fungsi untuk mengupdate kelas status badge
+function updateBadgeStatus(elementId, status) {
+    const badgeElement = document.getElementById(elementId);
+    
+    // Reset all classes first
+    badgeElement.classList.remove('status-normal', 'status-warning', 'status-danger');
+    
+    // Menambahkan kelas berdasarkan status
+    if (status === 'Normal') {
+        badgeElement.classList.add('status-normal');
+    } else if (status === 'Underweight') {
+        badgeElement.classList.add('status-danger');
+    } else if (status === 'Overweight') {
+        badgeElement.classList.add('status-warning');
+    }
 }
