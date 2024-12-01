@@ -38,17 +38,6 @@
             overflow: hidden;
         }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-            opacity: 0.5;
-        }
-
         .hero-title {
             color: var(--dark-blue);
             font-size: 2.5rem;
@@ -67,6 +56,7 @@
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.08);
             padding: 2.5rem;
+            width: 100%;
         }
 
         .form-label {
@@ -81,7 +71,7 @@
             border-radius: 8px;
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.2rem rgba(44, 110, 203, 0.15);
         }
@@ -98,59 +88,6 @@
         .btn-primary:hover {
             background-color: var(--dark-blue);
             transform: translateY(-1px);
-        }
-
-        .profile-section {
-            background-color: white;
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            color: var(--dark-blue);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: #566a7f;
-            margin-bottom: 3rem;
-        }
-
-        .team-card {
-            background-color: white;
-            border-radius: 12px;
-            border: 1px solid #edf2f7;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            border-color: var(--primary-color);
-        }
-
-        .team-card .card-title {
-            color: var(--dark-blue);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-card .card-text {
-            color: #566a7f;
-        }
-
-        .result-card {
-            border-radius: 12px;
-            border: 1px solid #edf2f7;
-            margin-bottom: 1rem;
-            padding: 1.5rem;
-        }
-
-        .result-card h6 {
-            color: var(--dark-blue);
-            font-weight: 600;
-            margin-bottom: 1rem;
         }
 
         .status-badge {
@@ -174,40 +111,6 @@
         .status-danger {
             background-color: #fee2e2;
             color: #991b1b;
-        }
-
-        .modal-header {
-            background-color: var(--accent-color);
-            border-bottom: none;
-            padding: 1.5rem;
-        }
-
-        .modal-body {
-            padding: 1.5rem;
-        }
-
-        .modal-footer {
-            border-top: none;
-            padding: 1.5rem;
-        }
-
-        .info-icon {
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 2rem 0;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .form-section {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -240,18 +143,27 @@
                                         <i class="fas fa-child info-icon"></i>
                                         Nama Balita
                                     </label>
-                                    <input type="text" class="form-control" placeholder="Masukkan nama balita" required>
+                                    <input type="text" id="namaBalita" class="form-control" placeholder="Masukkan nama balita" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">
                                         <i class="fas fa-venus-mars info-icon"></i>
                                         Jenis Kelamin
                                     </label>
-                                    <select class="form-select" required>
-                                        <option value="">Pilih jenis kelamin</option>
-                                        <option value="L">Laki-laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki" value="L" required>
+                                            <label class="form-check-label" for="lakiLaki">
+                                                Laki-laki
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan" value="P" required>
+                                            <label class="form-check-label" for="perempuan">
+                                                Perempuan
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">
@@ -259,7 +171,7 @@
                                         Umur
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" min="0" max="60" required>
+                                        <input type="number" id="umur" class="form-control" min="0" max="60" required>
                                         <span class="input-group-text">bulan</span>
                                     </div>
                                 </div>
@@ -269,7 +181,7 @@
                                         Berat Badan
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" step="0.1" required>
+                                        <input type="number" id="beratBadan" class="form-control" step="0.1" required>
                                         <span class="input-group-text">kg</span>
                                     </div>
                                 </div>
@@ -279,7 +191,7 @@
                                         Panjang Badan
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" step="0.1" required>
+                                        <input type="number" id="panjangBadan" class="form-control" step="0.1" required>
                                         <span class="input-group-text">cm</span>
                                     </div>
                                 </div>
@@ -291,57 +203,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Profile Section -->
-    <section class="profile-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Tim Pengembang</h2>
-                <p class="section-subtitle">
-                    Kelas B - Prodi Gizi<br>
-                    Fakultas Ilmu Keolahragaan & Kesehatan<br>
-                    Universitas Negeri Makassar
-                </p>
-            </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-                <div class="col">
-                    <div class="team-card">
-                        <i class="fas fa-user-md mb-3" style="color: var(--secondary-color); font-size: 1.5rem;"></i>
-                        <h6 class="card-title">NURKOMALA SARI</h6>
-                        <p class="card-text">220305500009</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="team-card">
-                        <i class="fas fa-user-md mb-3" style="color: var(--secondary-color); font-size: 1.5rem;"></i>
-                        <h6 class="card-title">MAGFIRATUL JANNAH</h6>
-                        <p class="card-text">220305501021</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="team-card">
-                        <i class="fas fa-user-md mb-3" style="color: var(--secondary-color); font-size: 1.5rem;"></i>
-                        <h6 class="card-title">GRETSHIN IVANA MADAUN</h6>
-                        <p class="card-text">220305502019</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="team-card">
-                        <i class="fas fa-user-md mb-3" style="color: var(--secondary-color); font-size: 1.5rem;"></i>
-                        <h6 class="card-title">NURUL BASIRA</h6>
-                        <p class="card-text">220305502031</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="team-card">
-                        <i class="fas fa-user-md mb-3" style="color: var(--secondary-color); font-size: 1.5rem;"></i>
-                        <h6 class="card-title">MARIATA L BADIN</h6>
-                        <p class="card-text">220305502034</p>
                     </div>
                 </div>
             </div>
@@ -361,34 +222,26 @@
                 </div>
                 <div class="modal-body">
                     <div class="result-card">
-                        <h6>
-                            <i class="fas fa-weight me-2"></i>
-                            Z Score (Berat Badan Menurut Umur)
-                        </h6>
+                        <h6><i class="fas fa-weight me-2"></i>Z Score (Berat Badan Menurut Umur)</h6>
                         <div id="weightForAge" class="status-badge status-normal"></div>
                     </div>
                     <div class="result-card">
-                        <h6>
-                            <i class="fas fa-ruler-vertical me-2"></i>
-                            Z Score (Panjang Badan Menurut Umur)
-                        </h6>
+                        <h6><i class="fas fa-ruler-vertical me-2"></i>Z Score (Panjang Badan Menurut Umur)</h6>
                         <div id="heightForAge" class="status-badge status-normal"></div>
                     </div>
                     <div class="result-card">
-                        <h6>
-                            <i class="fas fa-balance-scale me-2"></i>
-                            Z Score (Berat Badan Menurut Panjang Badan)
-                        </h6>
-                        <div id="weightForHeight" class="status-badge status-danger"></div>
+                        <h6><i class="fas fa-balance-scale me-2"></i>Z Score (Berat Badan Menurut Panjang Badan)</h6>
+                        <div id="weightForHeight" class="status-badge status-normal"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">
-                        <i class="fas fa-download me-2"></i>
-                        Simpan Hasil
-                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
