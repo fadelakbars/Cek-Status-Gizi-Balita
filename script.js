@@ -523,7 +523,7 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
         }
     };
 
-    function calculateZScore(value, category, sex, age) {
+    function calculateZScore(value, category, sex, ageOrLength) {
         if (!whoData[sex]) {
             console.error(`Jenis kelamin ${sex} tidak ditemukan dalam data WHO.`);
             return NaN;
@@ -532,18 +532,28 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
             console.error(`Kategori ${category} tidak ditemukan untuk ${sex} dalam data WHO.`);
             return NaN;
         }
-
+    
         const data = whoData[sex][category];
-
-        // Mencari data yang paling mendekati umur
-        let closestAge = data.reduce((prev, curr) => {
-            return (Math.abs(curr.age - age) < Math.abs(prev.age - age)) ? curr : prev;
-        });
-
-        const minSD = closestAge.minSD;
-        const median = closestAge.median;
-        const maxSD = closestAge.maxSD;
-
+    
+        let closest = null;
+    
+        // Untuk weightForHeight, kita mencari berdasarkan panjang badan (length)
+        if (category === "weightForHeight") {
+            closest = data.reduce((prev, curr) => {
+                return (Math.abs(curr.length - ageOrLength) < Math.abs(prev.length - ageOrLength)) ? curr : prev;
+            });
+        }
+        // Untuk kategori lainnya, kita mencari berdasarkan umur (age)
+        else {
+            closest = data.reduce((prev, curr) => {
+                return (Math.abs(curr.age - ageOrLength) < Math.abs(prev.age - ageOrLength)) ? curr : prev;
+            });
+        }
+    
+        const minSD = closest.minSD;
+        const median = closest.median;
+        const maxSD = closest.maxSD;
+    
         // Menentukan rumus yang akan digunakan berdasarkan apakah BB lebih kecil atau lebih besar dari median
         if (value < median) {
             return (value - median) / (median - minSD); // BB < median
@@ -551,6 +561,7 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
             return (value - median) / (maxSD - median); // BB > median
         }
     }
+    
 
     // Menghitung Z-Score untuk setiap kategori
     const zScoreWeightForAge = calculateZScore(beratBadan, "weightForAge", jenisKelamin, umur);
