@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #2C6ECB;
+    --secondary-color: #53B7B5;
+    --accent-color: #E8F3F3;
+    --dark-blue: #1a4789;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafb;
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    color: var(--dark-blue);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    color: #566a7f;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.form-section {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+    width: 100%;
+}
+
+.form-label {
+    color: #344767;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(44, 110, 203, 0.15);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-1px);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.status-normal {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}

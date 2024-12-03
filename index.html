@@ -1,248 +1,147 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Status Gizi Balita</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2C6ECB;
-            --secondary-color: #53B7B5;
-            --accent-color: #E8F3F3;
-            --dark-blue: #1a4789;
-        }
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cek Status Gizi Balita</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-heartbeat me-2"></i>
+                    Cek Status Gizi Balita
+                </a>
+            </div>
+        </nav>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafb;
-        }
-
-        .navbar {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            padding: 4rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-title {
-            color: var(--dark-blue);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-            color: #566a7f;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-section {
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            padding: 2.5rem;
-            width: 100%;
-        }
-
-        .form-label {
-            color: #344767;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-control, .form-select {
-            padding: 0.75rem 1rem;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(44, 110, 203, 0.15);
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border: none;
-            padding: 0.75rem 2rem;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--dark-blue);
-            transform: translateY(-1px);
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-
-        .status-normal {
-            background-color: #dcfce7;
-            color: #15803d;
-        }
-
-        .status-warning {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .status-danger {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-heartbeat me-2"></i>
-                Cek Status Gizi Balita
-            </a>
-        </div>
-    </nav>
-
-    <!-- Hero Section with Form -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h1 class="hero-title">Pantau Tumbuh Kembang Si Kecil</h1>
-                    <p class="hero-subtitle">Cek status gizi anak Anda berdasarkan standar WHO dan Kementerian Kesehatan RI untuk memastikan tumbuh kembang optimal.</p>
+        <!-- Hero Section with Form -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h1 class="hero-title">Pantau Tumbuh Kembang Si Kecil</h1>
+                        <p class="hero-subtitle">Cek status gizi anak Anda berdasarkan standar WHO dan Kementerian Kesehatan RI untuk memastikan tumbuh kembang optimal.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-section">
+                            <h4 class="mb-4 text-center">Input Data Balita</h4>
+                            <form id="nutritionForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">
+                                            <i class="fas fa-child info-icon"></i>
+                                            Nama Balita
+                                        </label>
+                                        <input type="text" id="namaBalita" class="form-control" placeholder="Masukkan nama balita" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">
+                                            <i class="fas fa-venus-mars info-icon"></i>
+                                            Jenis Kelamin
+                                        </label>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki" value="male" required>
+                                                <label class="form-check-label" for="lakiLaki">
+                                                    Laki-laki
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan" value="female" required>
+                                                <label class="form-check-label" for="perempuan">
+                                                    Perempuan
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">
+                                            <i class="fas fa-calendar-alt info-icon"></i>
+                                            Umur
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" id="umur" class="form-control" min="0" max="60" required>
+                                            <span class="input-group-text">bulan</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">
+                                            <i class="fas fa-weight info-icon"></i>
+                                            Berat Badan
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" id="beratBadan" class="form-control" step="0.1" required>
+                                            <span class="input-group-text">kg</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">
+                                            <i class="fas fa-ruler-vertical info-icon"></i>
+                                            Panjang Badan
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" id="panjangBadan" class="form-control" step="0.1" required>
+                                            <span class="input-group-text">cm</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-calculator me-2"></i>
+                                            Hitung Status Gizi
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="form-section">
-                        <h4 class="mb-4 text-center">Input Data Balita</h4>
-                        <form id="nutritionForm">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">
-                                        <i class="fas fa-child info-icon"></i>
-                                        Nama Balita
-                                    </label>
-                                    <input type="text" id="namaBalita" class="form-control" placeholder="Masukkan nama balita" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">
-                                        <i class="fas fa-venus-mars info-icon"></i>
-                                        Jenis Kelamin
-                                    </label>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki" value="male" required>
-                                            <label class="form-check-label" for="lakiLaki">
-                                                Laki-laki
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan" value="female" required>
-                                            <label class="form-check-label" for="perempuan">
-                                                Perempuan
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label">
-                                        <i class="fas fa-calendar-alt info-icon"></i>
-                                        Umur
-                                    </label>
-                                    <div class="input-group">
-                                        <input type="number" id="umur" class="form-control" min="0" max="60" required>
-                                        <span class="input-group-text">bulan</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label">
-                                        <i class="fas fa-weight info-icon"></i>
-                                        Berat Badan
-                                    </label>
-                                    <div class="input-group">
-                                        <input type="number" id="beratBadan" class="form-control" step="0.1" required>
-                                        <span class="input-group-text">kg</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label">
-                                        <i class="fas fa-ruler-vertical info-icon"></i>
-                                        Panjang Badan
-                                    </label>
-                                    <div class="input-group">
-                                        <input type="number" id="panjangBadan" class="form-control" step="0.1" required>
-                                        <span class="input-group-text">cm</span>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary btn-lg">
-                                        <i class="fas fa-calculator me-2"></i>
-                                        Hitung Status Gizi
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+            </div>
+        </section>
+
+
+
+        <!-- Results Modal -->
+        <div class="modal fade" id="resultsModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="fas fa-chart-bar me-2"></i>
+                            Hasil Analisis Status Gizi
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="result-card">
+                            <h6><i class="fas fa-weight me-2"></i>Z Score (Berat Badan Menurut Umur)</h6>
+                            <div id="weightForAge" class="status-badge status-normal"></div>
+                        </div>
+                        <div class="result-card">
+                            <h6><i class="fas fa-ruler-vertical me-2"></i>Z Score (Panjang Badan Menurut Umur)</h6>
+                            <div id="heightForAge" class="status-badge status-normal"></div>
+                        </div>
+                        <div class="result-card">
+                            <h6><i class="fas fa-balance-scale me-2"></i>Z Score (Berat Badan Menurut Panjang Badan)</h6>
+                            <div id="weightForHeight" class="status-badge status-normal"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Results Modal -->
-    <div class="modal fade" id="resultsModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <i class="fas fa-chart-bar me-2"></i>
-                        Hasil Analisis Status Gizi
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="result-card">
-                        <h6><i class="fas fa-weight me-2"></i>Z Score (Berat Badan Menurut Umur)</h6>
-                        <div id="weightForAge" class="status-badge status-normal"></div>
-                    </div>
-                    <div class="result-card">
-                        <h6><i class="fas fa-ruler-vertical me-2"></i>Z Score (Panjang Badan Menurut Umur)</h6>
-                        <div id="heightForAge" class="status-badge status-normal"></div>
-                    </div>
-                    <div class="result-card">
-                        <h6><i class="fas fa-balance-scale me-2"></i>Z Score (Berat Badan Menurut Panjang Badan)</h6>
-                        <div id="weightForHeight" class="status-badge status-normal"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- Script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+    </html>
