@@ -1,219 +1,116 @@
-    <!DOCTYPE html>
-    <html lang="id">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Artikel Lengkap - Makanan Sehat Untuk Balita</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <style>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel - Makanan Sehat Untuk Balita</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .article-subtitle {
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .article-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-back {
+            font-size: 1rem;
+            padding: 0.7rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 767px) {
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .article-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
             .article-content {
-                padding: 4rem 0;
+                font-size: 1rem;
             }
+
+            .btn-back {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+
             .article-header {
-                text-align: center;
-                margin-bottom: 2rem;
+                padding-left: 10px;
+                padding-right: 10px;
             }
-            .article-header h1 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: var(--dark-blue);
-            }
-            .article-header p {
-                color: #566a7f;
-                font-size: 1.2rem;
-            }
+
             .article-body {
-                padding: 2rem;
-                background-color: white;
-                border-radius: 12px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                padding-left: 15px;
+                padding-right: 15px;
             }
-            .article-image {
-                width: 100%;
-                height: 400px; /* Adjusted for article view */
-                object-fit: cover;
-                border-radius: 12px;
-                margin-bottom: 1.5rem;
-            }
-            .article-text {
-                font-size: 1.1rem;
-                color: #344767;
-                line-height: 1.8;
-            }
-            .back-btn {
-                background-color: var(--primary-color);
-                color: white;
-                border-radius: 8px;
-                padding: 0.75rem 2rem;
-                text-decoration: none;
-                display: inline-block;
-                margin-top: 2rem;
-            }
-            .back-btn:hover {
-                background-color: var(--dark-blue);
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Header -->
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <i class="fas fa-heartbeat me-2"></i>
-                    Cek Status Gizi Balita
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heartbeat me-2"></i>
+                Cek Status Gizi Balita
+            </a>
+        </div>
+    </nav>
+
+    <!-- Article Section -->
+    <section class="article-section">
+        <div class="container">
+            <div class="article-header">
+                <h1 class="article-title">Makanan Sehat Untuk Balita</h1>
+                <p class="article-subtitle">Usia balita merupakan tahapan perkembangan yang cukup rentan terhadap berbagai penyakit termasuk penyakit yang disebabkan oleh kelebihan atau kekurangan asupan nutrisi.</p>
+            </div>
+            <div class="article-body">
+                <img src="gambar1.jpeg" alt="Makanan Sehat Untuk Balita" class="article-image">
+                <div class="article-content">
+                    <p>Usia balita merupakan tahapan perkembangan yang cukup rentan terhadap berbagai penyakit termasuk penyakit yang disebabkan oleh kelebihan atau kekurangan asupan nutrisi. Setiap tahun lebih dari sepertiga kematian anak di dunia berkaitan dengan masalah kurang gizi. Berdasarkan data Riskesdas tahun 2013 prevalensi balita kurus sebesar 12,1%, prevalensi balita stunting sebesar 37,2%, prevalensi gizi kurang 19,6%.</p>
+                    <p>Status gizi balita berkaitan dengan asupan makanan atau nutrisi yang diterima balita. Nutrisi adalah salah satu komponen yang penting dalam menunjang keberlangsungan proses partumbuhan dan perkembangan. Apabila kebutuhan nutrisi seperti protein, mineral, karbohidrat, lemak, vitamin, dan air tidak atau kurang terpenuhi maka dapat menghambat pertumbuhan dan perkembangan balita.</p>
+                    <p>Pola asuh gizi berhubungan dengan tumbuh kembang balita. Salah satu cara dalam menerapkan pola asuh gizi yang benar adalah pemberian makanan kepada balita sesuai dengan pedoman gizi seimbang.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="index.html" class="btn btn-primary btn-back">
+                    <i class="fas fa-arrow-left me-2"></i> Kembali ke Halaman Utama
                 </a>
             </div>
-        </nav>
+        </div>
+    </section>
 
-            <!-- Article Section -->
-            <section class="article-section py-5">
-                <div class="container">
-                    <!-- Article Title and Image -->
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <h1 class="text-center mb-4">Makanan Pendamping ASI (MP-ASI)</h1>
-                            <img src="gambar2.jpeg" alt="Makanan Pendamping ASI" class="img-fluid rounded mb-4">
-                        </div>
-                    </div>
-        
-                    <!-- Article Content -->
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <h2>MP-ASI 4 REKOMENDASI WHO/UNICEF</h2>
-                            <ul>
-                                <li>Inisiasi menyusu dini (IMD) setelah bayi lahir</li>
-                                <li>ASI saja (eksklusif) sampai bayi berusia 6 bulan</li>
-                                <li>MP-ASI sejak bayi berusia 6-24 bulan</li>
-                                <li>Melanjutkan pemberian ASI sampai bayi berusia 24 bulan atau lebih</li>
-                            </ul>
-        
-                            <h2>MP-ASI LOKAL</h2>
-                            <p>MP-ASI lokal adalah MP-ASI yang diolah di rumah tangga atau di Posyandu, atau TPA terbuat dari bahan makanan yang tersedia setempat, mudah diperoleh dengan harga terjangkau oleh masyarakat, dan memerlukan pengolahan sebelum dikonsumsi sasaran.</p>
-        
-                            <h3>SYARAT PEMBUATAN MP-ASI LOKAL</h3>
-                            <ul>
-                                <li>Bahan makanan mudah diperoleh</li>
-                                <li>Mudah diolah Harga terjangkau</li>
-                                <li>Dapat diterima bayi dengan baik</li>
-                                <li>Memenuhi kecukupan gizi</li>
-                                <li>Jenis MP-ASI disesuaikan dengan usia</li>
-                                <li>Bebas dari kuman penyakit, pengawet, pewarna, perasa dan racun</li>
-                                <li>Memenuhi nilai budaya dan agama setempat</li>
-                            </ul>
-        
-                            <h3>PEMBERIAN MP-ASI PERTAMA UNTUK BAYI</h3>
-                            <ul>
-                                <li>Mudah dicerna</li>
-                                <li>Risiko alergi rendah</li>
-                                <li>Hindari penambahan gula</li>
-                                <li>Hindari penambahan garam</li>
-                                <li>Berikan menu makanan tunggal (contoh: pure labu kuning, pure kacang hijau, dll)</li>
-                            </ul>
-        
-                            <h3>WAKTU PEMBERIAN MP-ASI</h3>
-                            <ul>
-                                <li>Saat bayi usia 6 bulan</li>
-                                <li>Berikan di waktu yang sama setiap harinya saat bayi dalam kondisi nyaman dan tenang</li>
-                                <li>Berikan sedikit ASI sebelum memberi MP-ASI untuk mencegah bayi terlalu kelaparan</li>
-                                <li>Porsi makan pertama kali 2-3 sendok kecil penuh dimulai 1x/hari secara bertahap sampai 3x/hari</li>
-                                <li>Ukur suhu makanan (sedikit hangat)</li>
-                                <li>Dudukan bayi dipangkuan atau kursi makan bayi</li>
-                                <li>Beri senyuman dan ajak bayi bicara ketika menyuapi</li>
-                            </ul>
-        
-                            <h3>PERALATAN MAKAN BAYI</h3>
-                            <ul>
-                                <li>Piring/mangkok</li>
-                                <li>Sendok</li>
-                                <li>Cangkir</li>
-                                <li>Tadah liur</li>
-                                <li>Kursi makan</li>
-                                <li>Sapu tangan/tisu</li>
-                                <li>Perlak</li>
-                            </ul>
-        
-                            <h3>KEBUTUHAN ZAT GIZI DALAM MP-ASI</h3>
-                            <p>MP-ASI yang dikonsumsi bayi sejak usia 6 bulan harus memenuhi kriteria 4 bintang meliputi: karbohidrat, protein, lemak, vitamin-mineral).</p>
-                            <h4>Karbohidrat</h4>
-                            <p>Misalnya: kentang, ubi merah, jagung, makaroni, roti, oat meal, nasi (bubur atau tim)</p>
-                            <h4>Protein</h4>
-                            <p>Misalnya: ikan dan kacang-kacangan (kacang merah, kacang hijau, tempe, tahu)</p>
-                            <h4>Lemak</h4>
-                            <p>Misalnya: daging, telur, keju, yogurt, santan, minyak, alpukat</p>
-                            <h4>Vitamin - Mineral</h4>
-                            <p>Buah: pisang, jeruk, pepaya, pear, apel, melon, semangka, mangga, alpukat. (Cara masak: Pear, apel, dikukus)</p>
-                            <p>Sayur: kacang polong, wortel, brokoli, bayam, labu siam, kangkung, buncis, kembang kol, sawi hijau (Sayur dikukus, dihancurkan atau di blender)</p>
-        
-                            <h3>MAKANAN PADA KONDISI KHUSUS</h3>
-                            <ul>
-                                <li>Diare: perbanyak ASI, makanan tanpa sayur (tanpa serat) 2-3 hari</li>
-                                <li>Muntah: makanan volume lebih sedikit tetapi lebih sering.</li>
-                                <li>Panas: Perbanyak ASI, jus buah, sayur bening, sayur sop</li>
-                            </ul>
-        
-                            <h3>JENIS/BENTUK TEKSTUR MAKANAN SESUAI USIA BAYI</h3>
-                            <ul>
-                                <li>Usia 6-8 bulan: bubur halus (pure)</li>
-                                <li>Usia 8-10 bulan: bubur kasar</li>
-                                <li>Usia 10-12 bulan: tim</li>
-                                <li>Usia > 12 bulan: sama seperti orang dewasa</li>
-                            </ul>
-        
-                            <h3>HAL-HAL YANG PERLU DIPERHATIKAN SAAT PEMBERIAN MP-ASI</h3>
-                            <ul>
-                                <li>Selalu mencuci tangan sebelum mulai mempersiapkan makanan bayi dan sebelum memberi makan bayi, serta cuci juga tangan bayi</li>
-                                <li>Semua peralatan makan dan memasak harus segera dicuci setelah digunakan. Biarkan kering dengan cara diangin-anginkan, atau dikeringkan dengan lap bersih</li>
-                                <li>Periksa suhu makanan yang akan disuapkan pada bayi.</li>
-                                <li>Jangan menyimpan makanan yang tidak dihabiskan bayi. Ludah yang terbawa oleh sendok bayi akan menyebarkan bakteri</li>
-                                <li>Makanan bayi hasil olahan sendiri dapat dibekukan dengan menggunakan cetakan es batu, lalu tutup dengan plastik sampai rapat. Beri label dan tanggal. Bila akan diberikan pada bayi, makanan beku tersebut dapat dihangatkan panaskan dalam panci (ditim) biarkan makanan mencapai suhu kamar, baru disuapkan pada bayi.</li>
-                                <li>Makanan bayi yang dibekukan sebaiknya tidak dipanaskan lebih dari satu kali.</li>
-                                <li>Hindari pemberian garam, gula, madu atau perasa makanan lainnya.</li>
-                            </ul>
-        
-                            <h3>CONTOH MENU MP-ASI (6-8 BULAN)</h3>
-                            <h4>Menu makanan untuk usia bayi 6 bulan dalam bentuk pure (bubur halus)</h4>
-                            <p><strong>Bahan-bahan:</strong></p>
-                            <ul>
-                                <li>20 gram beras, cuci bersih</li>
-                                <li>625 ml air</li>
-                                <li>25 gram hati ayam</li>
-                                <li>50 gram tahu</li>
-                                <li>1 butir telur</li>
-                                <li>25 gram wortel, parut</li>
-                                <li>25 gram </li>
-                                <li>25 gram daun kangkung yang mudah, iris halus</li>
-                                <li>2 sdm santan matang</li>
-                            </ul>
-        
-                            <p><strong>Cara Membuat:</strong></p>
-                            <ol>
-                                <li>Rebus beras dengan air, hati ayam, dan tahu sambil terus diaduk hingga menjadi bubur.</li>
-                                <li>Masukkan telur, aduk terus hingga telur matang.</li>
-                                <li>Masukkan kangkung dan wortel, masak sampai sayur matang.</li>
-                                <li>Tambahkan santan, aduk hingga rata, kemudian angkat.</li>
-                            </ol>
-        
-                            <p class="text-center">
-                                <a href="index.html" class="btn btn-primary">Kembali ke Halaman Utama</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-            <!-- Footer -->
-            <footer class="text-center py-4 bg-light">
-                <p>&copy; 2024 Cek Status Gizi Balita. Semua Hak Cipta Dilindungi.</p>
-            </footer>
-        
-            <!-- Bootstrap JS and Popper.js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
-        </body>
-        </html>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    <!-- Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
