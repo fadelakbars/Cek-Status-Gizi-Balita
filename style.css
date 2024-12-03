@@ -137,3 +137,17 @@ body {
     color: #566a7f;
     font-size: 1rem;
 }
+
+.profile {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.profile ul {
+    margin-top: 20px;
+}
+
+.profile .list-group-item {
+    font-size: 1rem;
+    padding: 15px;
+}
