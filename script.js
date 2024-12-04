@@ -3,7 +3,7 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
     
     // Ambil data dari form
     const namaBalita = document.getElementById('namaBalita').value;
-    const jenisKelamin = document.querySelector('input[name="jenisKelamgiin"]:checked').value;
+    const jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
     const umur = parseInt(document.getElementById('umur').value);
     const beratBadan = parseFloat(document.getElementById('beratBadan').value);
     const panjangBadan = parseFloat(document.getElementById('panjangBadan').value);
