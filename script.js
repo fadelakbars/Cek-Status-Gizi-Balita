@@ -1,20 +1,17 @@
 document.getElementById('nutritionForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Ambil data dari form
     const namaBalita = document.getElementById('namaBalita').value;
     const jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
     const umur = parseInt(document.getElementById('umur').value);
     const beratBadan = parseFloat(document.getElementById('beratBadan').value);
     const panjangBadan = parseFloat(document.getElementById('panjangBadan').value);
 
-    // Pastikan umur valid
     if (umur < 0 || umur > 60) {
         alert('Umur harus antara 0 hingga 60 bulan');
         return;
     }
 
-    // Data WHO untuk Z-Score (dengan -1SD, median, dan +1SD)
     const whoData = {
         "male": {
             "weightForAge": [
@@ -555,13 +552,12 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
     
         let closest = null;
     
-        // Untuk kategori weightForHeight, kita mencari berdasarkan panjang badan (length)
         if (category === "weightForHeight") {
             closest = data.reduce((prev, curr) => {
                 return (Math.abs(curr.length - ageOrLength) < Math.abs(prev.length - ageOrLength)) ? curr : prev;
             });
         } 
-        // Untuk kategori lainnya (weightForAge, heightForAge), kita mencari berdasarkan umur (age)
+        
         else {
             closest = data.reduce((prev, curr) => {
                 return (Math.abs(curr.age - ageOrLength) < Math.abs(prev.age - ageOrLength)) ? curr : prev;
@@ -572,43 +568,36 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
         const median = closest.median;
         const maxSD = closest.maxSD;
     
-        // Menghitung Z-Score untuk weightForHeight
         if (category === "weightForHeight") {
-            // Jika panjang badan lebih kecil dari median
             if (value < median) {
                 return (value - median) / (median - minSD);
             } 
-            // Jika panjang badan lebih besar dari median
             else {
                 return (value - median) / (maxSD - median);
             }
         }
-        // Menghitung Z-Score untuk weightForAge dan heightForAge
         else {
             if (value < median) {
-                return (value - median) / (median - minSD); // BB atau TB < median
+                return (value - median) / (median - minSD); 
             } else {
-                return (value - median) / (maxSD - median); // BB atau TB > median
+                return (value - median) / (maxSD - median); 
             }
         }
     }
     
-    // Menghitung Z-Score untuk setiap kategori
     const zScoreWeightForAge = calculateZScore(beratBadan, "weightForAge", jenisKelamin, umur);
     const zScoreHeightForAge = calculateZScore(panjangBadan, "heightForAge", jenisKelamin, umur);
     const zScoreWeightForHeight = calculateZScore(beratBadan, "weightForHeight", jenisKelamin, panjangBadan);
 
-    // Menentukan status berdasarkan Z-Score
     const weightStatus = getStatus(zScoreWeightForAge);
     const heightStatus = getStatus(zScoreHeightForAge);
     const weightForHeightStatus = getStatus(zScoreWeightForHeight);
 
-    // Menampilkan hasil di modal
     document.getElementById('weightForAge').textContent = `${zScoreWeightForAge.toFixed(2)} (${weightStatus})`;
     document.getElementById('heightForAge').textContent = `${zScoreHeightForAge.toFixed(2)} (${heightStatus})`;
     document.getElementById('weightForHeight').textContent = `${zScoreWeightForHeight.toFixed(2)} (${weightForHeightStatus})`;
+    document.getElementById('balitaName').textContent = namaBalita;
 
-    // Menambahkan kelas berdasarkan status
     updateBadgeStatus('weightForAge', weightStatus);
     updateBadgeStatus('heightForAge', heightStatus);
     updateBadgeStatus('weightForHeight', weightForHeightStatus);
@@ -617,21 +606,17 @@ document.getElementById('nutritionForm').addEventListener('submit', function(e) 
     resultsModal.show();
 });
 
-// Fungsi untuk menentukan status berdasarkan Z-Score
 function getStatus(zScore) {
     if (zScore < -2) return 'Underweight';
     if (zScore >= -2 && zScore <= 2) return 'Normal';
     return 'Overweight';
 }
 
-// Fungsi untuk mengupdate kelas status badge
 function updateBadgeStatus(elementId, status) {
     const badgeElement = document.getElementById(elementId);
     
-    // Reset all classes first
     badgeElement.classList.remove('status-normal', 'status-warning', 'status-danger');
     
-    // Menambahkan kelas berdasarkan status
     if (status === 'Normal') {
         badgeElement.classList.add('status-normal');
     } else if (status === 'Underweight') {
